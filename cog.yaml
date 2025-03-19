@@ -1,0 +1,33 @@
+build:
+  gpu: true
+  cuda: "12.1"
+  python_version: "3.10"
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+    - "xvfb"
+  python_packages:
+    - torch==2.4
+    - ninja
+    - pybind11
+    - diffusers
+    - einops
+    - opencv-python
+    - numpy
+    - transformers
+    - torchvision
+    - omegaconf
+    - tqdm
+    - trimesh
+    - pymeshlab
+    - pygltflib
+    - xatlas
+    - accelerate
+    - rembg
+    - onnxruntime
+    - huggingface-hub
+  
+  run:
+    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.8.2/pget_linux_x86_64" && chmod +x /usr/local/bin/pget
+
+predict: "predict.py:Predictor"
